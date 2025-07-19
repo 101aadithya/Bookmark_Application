@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - Bookmarking Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .about-card {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .btn-register {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="about-card mx-auto col-md-8">
+        <h2 class="text-center mb-4">About Us</h2>
+        <p class="lead text-center">This is a Bookmarking Site by <strong>Aadithya</strong></p>
+        <hr>
+        <p><strong>Step 1:</strong> Register as a new user.</p>
+        <p><strong>Step 2:</strong> Log in with your credentials.</p>
+        <p>Once logged in, you can:</p>
+        <ul>
+            <li>Add a bookmark (Title + URL)</li>
+            <li>View a list of your bookmarks</li>
+            <li>Edit or delete existing bookmarks</li>
+        </ul>
+        <p class="text-danger font-weight-bold">⚠️ Note: You can only add a maximum of 5 bookmarks.</p>
+
+        <div class="text-center btn-register">
+            <form th:action="@{/registration}" method="get">
+                <button type="submit" class="btn btn-primary">Register Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

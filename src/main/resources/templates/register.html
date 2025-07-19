@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register | Bookmarking Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    
+    <style>
+        body {
+            background-color: #f4f6f8;
+        }
+        .register-card {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="register-card col-md-6 mx-auto">
+        <h2 class="text-center mb-4">Registration Form</h2>
+
+        <div class="alert alert-success" th:if="${message != null}" th:text="${message}">[[${message}]]</div>
+
+        <form th:action="@{/registration}" method="post" role="form" th:object="${user}">
+            <div class="form-group">
+                <label for="fullname">Fullname:</label>
+                <input th:field="*{fullname}" type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input th:field="*{email}" type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input th:field="*{password}" type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+
+            <button type="submit" value="Register" class="btn btn-primary btn-block" onclick="return Validate()">Register</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/login">Already have an account? Login</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger">Alert</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body text-danger">
+                Passwords do not match!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function Validate() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        if (password !== confirmPassword) {
+            $('#myModal').modal(); // Show modal if passwords don't match
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html> 

@@ -1,0 +1,69 @@
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete Bookmark</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+			  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+			  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+<h1>Delete Bookmark</h1>
+<p>Are you sure you want to delete <span th:text="${bookmarkDetails.title}"></span>?</p>
+<form action="#" th:action="@{/delete/{id}(id=${bookmarkDetails.id})}" method="post">
+    <input type="hidden" name="title" th:value="${bookmarkDetails.title}" />
+    <input type="submit" value="Delete" />
+</form>
+<a href="/all">Cancel</a>
+</div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Delete Bookmark</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .delete-box {
+            margin-top: 80px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+        .btn-space {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="col-md-6 offset-md-3 delete-box text-center">
+        <h3 class="mb-4 text-danger">Delete Bookmark</h3>
+        <p>Are you sure you want to delete:</p>
+        <h5 class="mb-4" th:text="${bookmarkDetails.title}">Bookmark Title</h5>
+
+        <form th:action="@{/delete/{id}(id=${bookmarkDetails.id})}" method="post">
+            <input type="hidden" name="title" th:value="${bookmarkDetails.title}" />
+            <button type="submit" class="btn btn-danger btn-space">Yes, Delete</button>
+            <a href="/all" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

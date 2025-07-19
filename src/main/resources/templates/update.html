@@ -1,0 +1,76 @@
+<!--
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Bookmark</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+<h1>Update Bookmark</h1>
+<form action="#" th:action="@{/update/{id}(id=${bookmarkDetails.id})}" method="post">
+    <label>Title:</label>
+    <input type="text" name="title" th:value="${bookmarkDetails.title}" required /><br/><br/>
+    <label>URL:</label>
+	<input type="text" name="url" th:value="${bookmarkDetails.url}" required /><br/><br/>
+    
+    <input type="submit" value="Update" />
+</form>
+</div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Bookmark</title>
+
+    <!-- Bootstrap & jQuery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .update-container {
+            margin-top: 80px;
+            max-width: 500px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .btn-block {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="update-container mx-auto">
+        <h3 class="text-center mb-4 text-primary">Update Bookmark</h3>
+        <form th:action="@{/update/{id}(id=${bookmarkDetails.id})}" method="post">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" class="form-control" th:value="${bookmarkDetails.title}" required />
+            </div>
+            <div class="form-group">
+                <label for="url">URL:</label>
+                <input type="text" name="url" id="url" class="form-control" th:value="${bookmarkDetails.url}" required />
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Update</button>
+            <a href="/all" class="btn btn-secondary btn-block mt-2">Cancel</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
